@@ -23,3 +23,23 @@ export const createExpense = async (req, res) => {
     res.status(409).json({ error: error.message });
   }
 };
+
+export const singleData = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const expense = await ExpenseSchema.findOne({ _id: id });
+    res.status(200).json(expense);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};
+
+export const deleteData = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const expense = await ExpenseSchema.findOneAndDelete({ _id: id });
+    res.status(200).json(expense);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};

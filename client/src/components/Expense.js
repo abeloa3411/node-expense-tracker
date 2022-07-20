@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Expense = () => {
   const [data, setData] = useState([]);
@@ -13,15 +15,31 @@ const Expense = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getData();
   }, [data]);
   return (
-    <div>
+    <div className="items-container">
       {data.map((item, index) => {
         return (
-          <div key={index}>
-            <h2>{item.name}</h2>
+          <div key={index} className="items">
+            <div className="title">
+              <h4>{item.name}</h4>
+              <p>{item.amount}</p>
+            </div>
+            <div className="item-btn-container">
+              <button className="edit-btn">
+                <Link to={`/edit/${item._id}`}>
+                  <AiOutlineEdit
+                    style={{ fontSize: "1.5rem", marginRight: "4px" }}
+                  />
+                </Link>
+              </button>
+              <button className="delete-btn">
+                <AiOutlineDelete style={{ fontSize: "1.5rem" }} />
+              </button>
+            </div>
           </div>
         );
       })}

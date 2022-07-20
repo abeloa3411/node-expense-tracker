@@ -38,7 +38,7 @@ const Main = () => {
                 onChange={(e) => setItem({ ...item, amount: e.target.value })}
               />
             </div>
-            <div className="bbutton-container">
+            <div className="button-container">
               <button type="submit" className="add-btn">
                 Add Expense
               </button>
