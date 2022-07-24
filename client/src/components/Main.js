@@ -14,12 +14,12 @@ const Main = () => {
     <>
       <div className="container">
         <div className="title">
-          <h2>Welcome to your Expense Traker</h2>
+          <h2>Welcome to your Workout Partner</h2>
         </div>
         <div className="inner-container">
           <form className="inputs" onSubmit={submitData}>
             <div className="expense-input">
-              <label htmlFor="expense">Enter the expense: </label>
+              <label htmlFor="expense">Enter exercise: </label>
               <input
                 name="expense"
                 type="text"
@@ -29,7 +29,7 @@ const Main = () => {
               />
             </div>
             <div className="amount-input">
-              <label htmlFor="amount">Enter amount: </label>
+              <label htmlFor="amount">Enter Load: </label>
               <input
                 name="amount"
                 type="number"
@@ -40,7 +40,7 @@ const Main = () => {
             </div>
             <div className="button-container">
               <button type="submit" className="add-btn">
-                Add Expense
+                Add Workout
               </button>
             </div>
           </form>

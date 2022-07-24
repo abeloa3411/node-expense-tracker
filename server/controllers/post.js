@@ -43,3 +43,21 @@ export const deleteData = async (req, res) => {
     res.status(409).json({ error: error.message });
   }
 };
+
+export const updateData = async (req, res) => {
+  const { id } = req.params;
+  const data = {
+    name: req.body.name,
+    amount: req.body.amount,
+  };
+
+  try {
+    const expense = await ExpenseSchema.findOneAndUpdate({ _id: id }, data, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json(expense);
+  } catch (error) {
+    res.status(409).json({ error: error.message });
+  }
+};

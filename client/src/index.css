@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: rgb(245, 236, 236);
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -13,9 +17,23 @@
   margin-bottom: 1rem;
 }
 
-.inner-container {
+.inner-container,
+.edit-container {
   width: 500px;
   margin-bottom: 1rem;
+}
+.edit-container {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+
+.edit-container-main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .inputs {
@@ -36,11 +54,17 @@
 .amount-input input,
 .expense-input input {
   padding: 5px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  height: 40px;
+  background: white;
 }
 
 .add-btn,
 .delete-btn,
-.edit-btn {
+.edit-btn,
+.update-btn {
   border: none;
   outline: none;
   padding: 5px 10px;
@@ -49,8 +73,9 @@
   cursor: pointer;
 }
 
-.add-btn {
-  background: dodgerblue;
+.add-btn,
+.update-btn {
+  background: rgb(106, 236, 106);
 }
 
 .items {
@@ -63,4 +88,13 @@
   margin-bottom: 1rem;
   border-radius: 8px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.edit-items {
+  margin-bottom: 1rem;
+}
+
+.title h4 {
+  color: rgb(106, 236, 106);
+  margin-bottom: 10px;
 }

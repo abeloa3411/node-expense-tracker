@@ -26,7 +26,7 @@ const Expense = () => {
           <div key={index} className="items">
             <div className="title">
               <h4>{item.name}</h4>
-              <p>{item.amount}</p>
+              <p>load(kg): {item.amount}</p>
             </div>
             <div className="item-btn-container">
               <button className="edit-btn">
@@ -36,7 +36,15 @@ const Expense = () => {
                   />
                 </Link>
               </button>
-              <button className="delete-btn">
+              <button
+                className="delete-btn"
+                onClick={async () => {
+                  const remData = axios.delete(
+                    `http://localhost:5000/api/v1/post/${item._id}`
+                  );
+                  console.log(remData);
+                }}
+              >
                 <AiOutlineDelete style={{ fontSize: "1.5rem" }} />
               </button>
             </div>
