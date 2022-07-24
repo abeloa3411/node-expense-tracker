@@ -11,6 +11,7 @@ const Edit = () => {
     const res = await axios.get(`http://localhost:5000/api/v1/post/${id}`);
     setData(res.data);
   };
+
   useEffect(() => {
     getData();
   });
@@ -52,7 +53,16 @@ const Edit = () => {
               />
             </div>
             <div className="btn-container">
-              <button className="update-btn" type="submit">
+              <button
+                className="update-btn"
+                type="submit"
+                onClick={async () => {
+                  const upData = axios.patch(
+                    `http://localhost:5000/api/v1/post/${item._id}`
+                  );
+                  console.log(upData);
+                }}
+              >
                 update
               </button>
             </div>

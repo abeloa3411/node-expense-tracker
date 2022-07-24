@@ -39,10 +39,9 @@ const Expense = () => {
               <button
                 className="delete-btn"
                 onClick={async () => {
-                  const remData = axios.delete(
+                  await axios.delete(
                     `http://localhost:5000/api/v1/post/${item._id}`
                   );
-                  console.log(remData);
                 }}
               >
                 <AiOutlineDelete style={{ fontSize: "1.5rem" }} />

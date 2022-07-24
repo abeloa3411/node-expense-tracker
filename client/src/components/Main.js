@@ -8,6 +8,7 @@ const Main = () => {
   const submitData = async (e) => {
     e.preventDefault();
     await axios.post("http://localhost:5000/api/v1/post", item);
+    setItem({ name: "", amount: "" });
   };
 
   return (
