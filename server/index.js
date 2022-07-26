@@ -1,8 +1,8 @@
+import cors from "cors";
 import express from "express";
+import expenses from "./routes/post.js";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import expenses from "./routes/post.js";
-import cors from "cors";
 
 const app = express();
 dotenv.config();
