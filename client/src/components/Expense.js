@@ -8,7 +8,9 @@ const Expense = () => {
 
   const getData = async () => {
     try {
-      const fetchedData = await axios.get("http://localhost:5000/api/v1/post");
+      const fetchedData = await axios.get(
+        "https://exercise-tracker-simple.herokuapp.com/"
+      );
       const { data } = fetchedData;
       setData(data);
     } catch (error) {
@@ -40,7 +42,7 @@ const Expense = () => {
                 className="delete-btn"
                 onClick={async () => {
                   await axios.delete(
-                    `http://localhost:5000/api/v1/post/${item._id}`
+                    `https://exercise-tracker-simple.herokuapp.com/${item._id}`
                   );
                 }}
               >

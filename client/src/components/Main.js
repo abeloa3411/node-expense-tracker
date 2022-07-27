@@ -7,7 +7,7 @@ const Main = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/v1/post", item);
+    await axios.post("https://exercise-tracker-simple.herokuapp.com", item);
     setItem({ name: "", amount: "" });
   };
 

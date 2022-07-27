@@ -8,7 +8,9 @@ const Edit = () => {
   const { id } = useParams();
 
   const getData = async () => {
-    const res = await axios.get(`http://localhost:5000/api/v1/post/${id}`);
+    const res = await axios.get(
+      `https://exercise-tracker-simple.herokuapp.com/${id}`
+    );
     setData(res.data);
   };
 
@@ -57,10 +59,9 @@ const Edit = () => {
                 className="update-btn"
                 type="submit"
                 onClick={async () => {
-                  const upData = axios.patch(
-                    `http://localhost:5000/api/v1/post/${item._id}`
+                  return axios.patch(
+                    `https://exercise-tracker-simple.herokuapp.com/${item._id}`
                   );
-                  console.log(upData);
                 }}
               >
                 update
