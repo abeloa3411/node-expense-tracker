@@ -8,9 +8,7 @@ const Expense = () => {
 
   const getData = async () => {
     try {
-      const fetchedData = await axios.get(
-        "https://exercise-tracker-simple.herokuapp.com/"
-      );
+      const fetchedData = await axios.get("/api/v1/post");
       const { data } = fetchedData;
       setData(data);
     } catch (error) {
@@ -41,9 +39,7 @@ const Expense = () => {
               <button
                 className="delete-btn"
                 onClick={async () => {
-                  await axios.delete(
-                    `https://exercise-tracker-simple.herokuapp.com/${item._id}`
-                  );
+                  await axios.delete(`/api/v1/post/${item._id}`);
                 }}
               >
                 <AiOutlineDelete style={{ fontSize: "1.5rem" }} />
