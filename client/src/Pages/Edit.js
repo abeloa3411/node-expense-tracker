@@ -7,14 +7,18 @@ const Edit = () => {
   const [item, setItem] = useState({ name: "", amount: "" });
   const { id } = useParams();
 
+  console.log(id);
   const getData = async () => {
     const res = await axios.get(`/api/v1/post/${id}`);
     setData(res.data);
   };
 
+  // const updateData = async () => {
+  //   return axios.patch(`/api/v1/post/${item._id}`);
+  // };
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   if (!data) {
     return null;

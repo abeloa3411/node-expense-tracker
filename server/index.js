@@ -4,7 +4,6 @@ import expenses from "./routes/post.js";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import path from "path";
-import { fileURLToPath } from "url";
 
 const app = express();
 dotenv.config();

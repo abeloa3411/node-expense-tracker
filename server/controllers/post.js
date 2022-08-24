@@ -15,6 +15,17 @@ export const createExpense = async (req, res) => {
     amount: req.body.amount,
   };
 
+  const exp = [];
+  if (!data.name) {
+    exp.push("name");
+  }
+  if (!data.amount) {
+    exp.push("amount");
+  }
+  if (exp.length > 0) {
+    res.status(400).json({ error: "enter the fields", exp });
+  }
+
   const newExpense = new ExpenseSchema(data);
   try {
     await newExpense.save();
@@ -50,12 +61,11 @@ export const updateData = async (req, res) => {
     name: req.body.name,
     amount: req.body.amount,
   };
-
+  if (!data) {
+    res.status(400).json({ error: "Please update all fields" });
+  }
   try {
-    const expense = await ExpenseSchema.findOneAndUpdate({ _id: id }, data, {
-      new: true,
-      runValidators: true,
-    });
+    const expense = await ExpenseSchema.updateOne({ _id: id }, { $set: data });
     res.status(200).json(expense);
   } catch (error) {
     res.status(409).json({ error: error.message });
